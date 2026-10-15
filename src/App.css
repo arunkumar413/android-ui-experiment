@@ -70,13 +70,21 @@ body {
   font-weight: 600;
 }
 
+.icon-group{
+  background: #fff;
+  padding: 12px;
+}
+
 .icon-group + .icon-group {
-  margin-top: 18px;
+  margin-top: 2px;
+  background: #fff;
+  padding: 12px;
 }
 
 .icon-group-summary {
   display: flex;
-  min-height: 44px;
+  justify-content: center;
+  min-height: 24px;
   align-items: center;
   gap: 10px;
   cursor: pointer;
@@ -123,7 +131,7 @@ body {
 }
 
 .icon-group[open] .icon-group-summary {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .icon-group:not([open]) > .icon-grid {
@@ -247,13 +255,13 @@ body {
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
-  gap: 14px;
+  gap: 10px;
 }
 
 .icon-card {
   display: flex;
   min-width: 0;
-  min-height: 142px;
+  /* min-height: 124px; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -328,24 +336,24 @@ body {
 
   .icon-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
+    gap: 6px 8px;
   }
 
   .icon-card {
-    min-height: 112px;
+    /* min-height: 94px; */
     border-radius: 14px;
   }
 
   .icon-image {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
     border-radius: 14px;
   }
 
   .icon-image img {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
   }
 
   .icon-name {
@@ -378,22 +386,22 @@ body {
   }
 
   .icon-grid {
-    gap: 6px;
+    gap: 4px 6px;
   }
 
   .icon-card {
-    min-height: 104px;
+    /* min-height: 88px; */
   }
 
   .icon-image {
-    width: 42px;
-    height: 42px;
-    flex-basis: 42px;
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
   }
 
   .icon-image img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .icon-name {

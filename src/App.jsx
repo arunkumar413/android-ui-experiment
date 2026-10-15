@@ -556,7 +556,7 @@ function App() {
               aria-pressed={selectedGroup === 'all'}
               onClick={() => selectGroup('all')}
             >
-              All <span className="group-filter-count">{iconData.length}</span>
+              All <span className="group-filter-count"> ({iconData.length})</span>
             </button>
             {Object.keys(groupedIconData).map((label) => (
               <button
@@ -568,7 +568,7 @@ function App() {
               >
                 {label}{' '}
                 <span className="group-filter-count">
-                  {groupedIconData[label].length}
+                  ({groupedIconData[label].length})
                 </span>
               </button>
             ))}
