@@ -47,3 +47,22 @@ npm run build    # Create a production build in dist/
 npm run preview  # Preview the production build locally
 npm run lint     # Run Oxlint
 ```
+
+## Deploy to GitHub Pages
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and deploys
+the app when code is pushed to the `main` or `master` branch. It derives the
+Vite base path from the repository name so the app and its assets work from a
+GitHub Pages project URL. Repositories named `<owner>.github.io` use the root
+path.
+
+To enable deployment:
+
+1. Push the project to a GitHub repository.
+2. In the repository, open **Settings → Pages**.
+3. Set **Build and deployment → Source** to **GitHub Actions**.
+4. Push to `main` or `master`, or run the **Deploy to GitHub Pages** workflow
+   manually from the **Actions** tab.
+
+After the workflow succeeds, the Pages URL appears in the workflow run's
+deployment summary.
