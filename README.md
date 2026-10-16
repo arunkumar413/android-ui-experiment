@@ -1,13 +1,12 @@
 # App Icon Library
 
-A responsive React app for browsing a curated collection of app icons. Icons are grouped by their labels, so an app with multiple labels appears in each relevant group.
+A responsive React app for browsing a curated collection of app icons. Each app appears once in the grid and can be filtered by its labels.
 
 ## Features
 
-- Browse app icons in a responsive grid, including a four-column layout on mobile.
-- Expand and collapse label groups using the accordion headings.
+- Browse all app icons in a responsive grid, including a four-column layout on mobile.
 - Filter the collection with the sticky group menu. Each button shows the number of apps in that group.
-- Search apps by name or label. Focusing search switches the selected group to **All** so search covers the complete collection.
+- Search apps by name or label without duplicate results. Focusing search switches the selected group to **All** so search covers the complete collection.
 - View the app count for **All** and for each group.
 
 ## Run locally

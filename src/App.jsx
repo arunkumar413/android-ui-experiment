@@ -382,24 +382,15 @@ function App() {
   const firstResultRef = useRef(null)
   const filterMenuRef = useRef(null)
   const normalizedSearch = searchQuery.trim().toLowerCase()
-  const visibleGroups = Object.entries(groupedIconData)
-    .filter(
-      ([label]) =>
-        selectedGroup === 'all' ||
-        label === selectedGroup,
-    )
-    .map(([label, icons]) => [
-      label,
-      icons.filter(
-        (icon) =>
-          !normalizedSearch ||
-          icon.name.toLowerCase().includes(normalizedSearch) ||
-          icon.labels.some((iconLabel) =>
-            iconLabel.toLowerCase().includes(normalizedSearch),
-          ),
-      ),
-    ])
-    .filter(([, icons]) => icons.length > 0)
+  const visibleIcons = iconData.filter(
+    (icon) =>
+      (selectedGroup === 'all' || icon.labels.includes(selectedGroup)) &&
+      (!normalizedSearch ||
+        icon.name.toLowerCase().includes(normalizedSearch) ||
+        icon.labels.some((iconLabel) =>
+          iconLabel.toLowerCase().includes(normalizedSearch),
+        )),
+  )
 
   const selectGroup = (label) => {
     setSelectedGroup(label)
@@ -476,54 +467,32 @@ function App() {
         </div>
         <span className="app-count">{iconData.length} apps</span>
       </header> */}
-      {visibleGroups.length > 0 ? (
-        visibleGroups.map(([label, icons], groupIndex) => {
-        const groupId = `group-${label.replace(/\s+/g, '-')}`
-
-        return (
-          <details
-            className="icon-group"
-            key={label}
-            open
-          >
-            <summary className="icon-group-summary">
-              <h2 className="icon-group-title" id={groupId}>
-                {label}
-              </h2>
-              <span className="icon-group-count">{icons.length}</span>
-            </summary>
-            <div className="icon-grid">
-              {icons.map((icon, iconIndex) => (
-                <div
-                  className="icon-card"
-                  key={icon.id}
-                  ref={
-                    groupIndex === 0 && iconIndex === 0
-                      ? firstResultRef
-                      : undefined
+      {visibleIcons.length > 0 ? (
+        <div className="icon-grid">
+          {visibleIcons.map((icon, iconIndex) => (
+            <div
+              className="icon-card"
+              key={icon.id}
+              ref={iconIndex === 0 ? firstResultRef : undefined}
+            >
+              {icon.img && (
+                <span
+                  className={
+                    icon.name === 'Apple' ||
+                    icon.name === 'Grok' ||
+                    icon.name === 'Uber'
+                      ? 'icon-image icon-image-contrast'
+                      : 'icon-image'
                   }
+                  aria-hidden="true"
                 >
-                  {icon.img && (
-                    <span
-                      className={
-                        icon.name === 'Apple' ||
-                        icon.name === 'Grok' ||
-                        icon.name === 'Uber'
-                          ? 'icon-image icon-image-contrast'
-                          : 'icon-image'
-                      }
-                      aria-hidden="true"
-                    >
-                      <img src={icon.img} alt="" />
-                    </span>
-                  )}
-                  <span className="icon-name">{icon.name}</span>
-                </div>
-              ))}
+                  <img src={icon.img} alt="" />
+                </span>
+              )}
+              <span className="icon-name">{icon.name}</span>
             </div>
-          </details>
-        )
-        })
+          ))}
+        </div>
       ) : (
         <p className="empty-results">No apps match your search.</p>
       )}
