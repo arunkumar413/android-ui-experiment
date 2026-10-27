@@ -18,12 +18,15 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background:
+    radial-gradient(circle at 8% 0%, rgb(220 229 255 / 72%), transparent 32%),
+    linear-gradient(180deg, #f8faff 0%, #f2f5fb 100%);
 }
 
 .app-shell {
   width: min(100% - 48px, 1120px);
   margin: 0 auto;
-  padding: 64px 0 190px;
+  padding: 48px 0 190px;
 }
 
 .app-header {
@@ -31,7 +34,7 @@ body {
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .eyebrow {
@@ -45,7 +48,7 @@ body {
 .app-header h1 {
   margin: 0;
   color: #172033;
-  font-size: clamp(30px, 4vw, 40px);
+  font-size: clamp(32px, 4vw, 44px);
   font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.1;
@@ -187,24 +190,27 @@ body {
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
-  gap: 10px;
-  padding: 12px;
-  background: #fff;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgb(224 230 242 / 90%);
+  border-radius: 24px;
+  background: rgb(255 255 255 / 72%);
+  box-shadow: 0 18px 50px rgb(48 67 112 / 8%);
 }
 
 .icon-card {
   display: flex;
   min-width: 0;
-  /* min-height: 124px; */
+  min-height: 132px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* gap: 12px; */
-  /* padding: 18px 12px 16px; */
-  /* border: 1px solid #e8ecf3; */
-  border-radius: 16px;
-  /* background: #fff; */
-  /* box-shadow: 0 2px 6px rgb(24 39 75 / 4%); */
+  gap: 10px;
+  padding: 14px 8px 12px;
+  border: 1px solid #e8ecf3;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 5px 14px rgb(34 51 91 / 5%);
   text-align: center;
   transition:
     transform 160ms ease,
@@ -216,6 +222,10 @@ body {
   transform: translateY(-3px);
   border-color: #d8dfeb;
   box-shadow: 0 10px 24px rgb(24 39 75 / 9%);
+}
+
+.icon-card:active {
+  transform: scale(0.97);
 }
 
 .icon-image {
@@ -259,39 +269,66 @@ body {
 @media (max-width: 600px) {
   .app-shell {
     width: min(100% - 32px, 1120px);
-    padding: 32px 0 190px;
+    padding: 28px 0 190px;
   }
 
   .app-header {
     align-items: center;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow {
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 32px;
+  }
+
+  .app-description {
+    margin-top: 6px;
+    font-size: 13px;
+  }
+
+  .app-count {
+    margin-bottom: 0;
+    padding: 7px 10px;
+    font-size: 12px;
   }
 
   .icon-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px 8px;
+    gap: 9px 8px;
+    padding: 10px;
+    border-radius: 22px;
   }
 
   .icon-card {
-    /* min-height: 94px; */
+    min-height: 112px;
+    gap: 8px;
+    padding: 11px 4px 9px;
     border-radius: 14px;
   }
 
   .icon-image {
-    width: 42px;
-    height: 42px;
-    flex-basis: 42px;
-    border-radius: 14px;
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgb(33 48 83 / 8%);
   }
 
   .icon-image img {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
   }
 
   .icon-name {
+    min-height: 28px;
     font-size: 10px;
+    font-weight: 650;
   }
 }
 
@@ -320,22 +357,25 @@ body {
   }
 
   .icon-grid {
-    gap: 4px 6px;
+    gap: 7px 5px;
+    padding: 8px;
   }
 
   .icon-card {
-    /* min-height: 88px; */
+    min-height: 100px;
+    padding-right: 2px;
+    padding-left: 2px;
   }
 
   .icon-image {
-    width: 38px;
-    height: 38px;
-    flex-basis: 38px;
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
   }
 
   .icon-image img {
-    width: 28px;
-    height: 28px;
+    width: 34px;
+    height: 34px;
   }
 
   .icon-name {

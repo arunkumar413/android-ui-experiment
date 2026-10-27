@@ -457,16 +457,16 @@ function App() {
 
   return (
     <main className="app-shell">
-      {/* <header className="app-header">
+      <header className="app-header">
         <div>
           <p className="eyebrow">YOUR COLLECTION</p>
           <h1>App library</h1>
           <p className="app-description">
-            Your favorite apps, all in one place.
+            Find your apps by name or category.
           </p>
         </div>
         <span className="app-count">{iconData.length} apps</span>
-      </header> */}
+      </header>
       {visibleIcons.length > 0 ? (
         <div className="icon-grid">
           {visibleIcons.map((icon, iconIndex) => (
