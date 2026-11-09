@@ -456,7 +456,10 @@ function App() {
   ])
 
   return (
-    <main className="app-shell">
+    <main
+      className="app-shell"
+      style={{ '--filter-menu-height': `${viewportMetrics.height / 2}px` }}
+    >
       <header className="app-header">
         <div>
           <p className="eyebrow">YOUR COLLECTION</p>
