@@ -164,7 +164,7 @@ body {
 }
 
 .group-filter.is-active {
-  border-color: #354b9a;
+  /* border-color: #354b9a; */
   background: #0076DF;
   color: #fff;
 }
